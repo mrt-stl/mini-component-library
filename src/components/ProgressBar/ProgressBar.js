@@ -8,16 +8,19 @@ import VisuallyHidden from "../VisuallyHidden"
 const SIZES = {
     small: {
         "--height": "8px",
+        "--height-inner": "8px",
         "--radius": "4px",
         "--position": "0px",
     },
     medium: {
         "--height": "12px",
+        "--height-inner": "12px",
         "--radius": "4px",
         "--position": "0px",
     },
     large: {
         "--height": "24px",
+        "--height-inner": "16px",
         "--radius": "8px",
         "--position": "4px",
     },
@@ -47,13 +50,13 @@ const Progress = styled.div`
     :after {
         content: "";
         width: calc(${(props) => props.value}% - (2 * var(--position)));
-        height: calc(var(--height) - var(--position));
+        height: var(--height-inner);
         display: block;
         position: absolute;
         top: var(--position);
         left: var(--position);
         background-color: ${COLORS.primary};
-        border-radius: ${(props) => (props.value >= 98 ? "4px 4px 4px 4px" : "4px 0px 0px 4px")};
+        border-radius: ${(props) => (props.value >= 98 ? (props.value > 99 ? "4px 4px 4px 4px" : "4px 2px 2px 4px") : "4px 0px 0px 4px")};
         transition: width 0.1s linear;
     }
 `
