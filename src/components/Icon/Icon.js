@@ -22,7 +22,7 @@ const Icon = ({ id, size, strokeWidth = 1, ...delegated }) => {
   }
 
   return (
-    <Wrapper
+    <IconWrapper
       style={{
         '--size': size + 'px',
         '--stroke-width': strokeWidth + 'px',
@@ -30,11 +30,11 @@ const Icon = ({ id, size, strokeWidth = 1, ...delegated }) => {
       {...delegated}
     >
       <Component color="currentColor" size={size} />
-    </Wrapper>
+    </IconWrapper>
   );
 };
 
-const Wrapper = styled.div`
+export const IconWrapper = styled.div`
   width: var(--size);
   height: var(--size);
 
